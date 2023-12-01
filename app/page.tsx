@@ -1,40 +1,12 @@
-import { ModeToggle } from "@/lib/mode-toggle";
+import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
   return (
-    
-    <div className=" e-card playing">
-      
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
-      <div className="h-full"/>
+    <div>
+      <HeroSection />
+      <div className="h-[5000px]">
+        
+      </div>
     </div>
   )
 }

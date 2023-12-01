@@ -1,0 +1,26 @@
+<svg viewBox="0 0 24 24" id="prefix__Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#276685;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#9cc0d3;stop-opacity:1" />
+        </linearGradient>
+        <style>
+            .prefix__cls-1 {
+                fill: none;
+                stroke: url(#gradient);
+                stroke-miterlimit: 10;
+                stroke-width: 2px
+            }
+        </style>
+    </defs>
+    <path class="prefix__cls-1" d="M15 1l-3 3-3-3M9 23l3-3 3 3M12 4v16" />
+    <circle class="prefix__cls-1" cx="12" cy="7" r="1" />
+    <circle class="prefix__cls-1" cx="12" cy="17" r="1" />
+    <path class="prefix__cls-1" d="M3.97 3.9L5.07 8 .97 9.1M20.03 20.1l-1.1-4.1 4.1-1.1M5.07 8l13.86 8" />
+    <circle class="prefix__cls-1" cx="7.67" cy="9.5" r="1" />
+    <circle class="prefix__cls-1" cx="16.33" cy="14.5" r="1" />
+    <path class="prefix__cls-1" d="M20.03 3.9L18.93 8l4.1 1.1M3.97 20.1l1.1-4.1-4.1-1.1M18.93 8L5.07 16" />
+    <circle class="prefix__cls-1" cx="16.33" cy="9.5" r="1" />
+    <circle class="prefix__cls-1" cx="7.67" cy="14.5" r="1" />
+    <path class="prefix__cls-1" d="M2 12h2M20 12h2M7 20.66l1-1.73M16 5.07l1-1.73M17 20.66l-1-1.73M8 5.07L7 3.34" />
+</svg>

@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from 'next/image'
 
 import { cn } from "@/lib/utils"
 import {
@@ -14,57 +13,21 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Dot, Shield } from "lucide-react"
+import { Dot } from "lucide-react"
 import { ModeToggle } from "@/lib/mode-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
+
   const controlNavbar = React.useCallback(() => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > lastScrollY) {
         // if scroll down hide the navbar
         setIsOpen(false);
-        console.log(isOpen)
+        console.log(lastScrollY)
       } else {
         setIsOpen(true);
       }
@@ -85,9 +48,9 @@ export function Navbar() {
   }, [controlNavbar]);
 
   return (
-      <div className={`fixed w-full transition-transform duration-300 transform ${isOpen ? '-translate-y-20 scale-100' : '-translate-y-full scale-0'} flex flex-col items-center`}>
+      <div className={`z-50 bg-gradient-to-b from-sky-950/30 fixed w-full transition-transform ease-in-out duration-300 transform ${isOpen ? '-translate-y-0' : '-translate-y-28' } flex flex-col items-center p-4`}>
         <div className="flex flex-rows-3 gap-72">  
-          <img className="aspect-square h-16" alt="Frost" src="/logo.png"/>
+          <img className=" svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16" alt="Frost" src="/logo.svg"/>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
