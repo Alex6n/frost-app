@@ -14,8 +14,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Shield } from "lucide-react"
+import { Dot, Shield } from "lucide-react"
 import { ModeToggle } from "@/lib/mode-toggle"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -56,74 +57,76 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function Navbar() {
-  const logo = './public/logo.png';
+  const [isOpen, setIsOpen] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
+  const controlNavbar = React.useCallback(() => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
+        setIsOpen(false);
+        console.log(isOpen)
+      } else {
+        setIsOpen(true);
+      }
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    }
+  }, [lastScrollY]);
+  
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+  
+      // cleanup function
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [controlNavbar]);
+
   return (
-      <div className="flex flex-col items-center mt-1">
-      <div className="flex flex-rows-3 space-x-10">  
-        <Image width={50} height={50} alt="Frost" src="/logo.png"/>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-            <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                    <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                    >
-                        <Shield className="h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
-                        </p>
-                    </a>
-                    </NavigationMenuLink>
-                </li>
-                <ListItem href="/docs" title="Introduction">
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
-                    How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                    Styles for headings, paragraphs, lists...etc
-                </ListItem>
-                </ul>
-            </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                    <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                    >
-                    {component.description}
-                    </ListItem>
-                ))}
-                </ul>
-            </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
+      <div className={`fixed w-full transition-transform duration-300 transform ${isOpen ? '-translate-y-20 scale-100' : '-translate-y-full scale-0'} flex flex-col items-center`}>
+        <div className="flex flex-rows-3 gap-72">  
+          <img className="aspect-square h-16" alt="Frost" src="/logo.png"/>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+              <Link href="/docs" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Documentation
+                  </NavigationMenuLink>
+              </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+              <NavigationMenuTrigger>Contact Us</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-col]">
+                  <ListItem href="/docs" title="Online Chat">
+                      Re-usable components built using Radix UI and Tailwind CSS.
+                  </ListItem>
+                  <ListItem href="/docs/installation" title="Discord">
+                      How to install dependencies and structure your app.
+                  </ListItem>
+                  </ul>
+              </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+              <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
+                  <Dot className='overflow-clip text-green-500'/>
+                    Status
                 </NavigationMenuLink>
-            </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <ModeToggle />
-            </NavigationMenuItem>
-          </NavigationMenuList>      
-        </NavigationMenu>
+              </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <ModeToggle />
+              </NavigationMenuItem>
+            </NavigationMenuList>      
+          </NavigationMenu>
+          <Avatar className="mt-3">
+            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
         </div>
       </div>
   )
