@@ -21,57 +21,57 @@
 
     --card: 195 30% 80%;
     --card-foreground: 200 60% 1%;
- 
+
     --popover: 195 30% 80%;
     --popover-foreground: 200 60% 1%;
- 
+
     --primary: 201 38% 28%;
     --primary-foreground: 195 33% 93%;
- 
+
     --secondary: 201 48% 87%;
     --secondary-foreground: 240 5.9% 10%;
- 
+
     --muted: 195 30% 80%;
     --muted-foreground: 240 3.8% 46.1%;
- 
+
     --accent: 201 48% 87%;
     --accent-foreground: 240 5.9% 10%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 201 30% 70%;
     --ring: 240 10% 3.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
-    --background: 190 33% 7%;
+    --background: 217 45% 8%;
     --foreground: 0 0% 98%;
- 
+
     --card: 195 70% 10%;
     --card-foreground: 0 0% 98%;
- 
-    --popover: 195 70% 10%;
+
+    --popover: 213, 69%, 7%;
     --popover-foreground: 0 0% 98%;
- 
-    --primary: 201 38% 72%;
-    --primary-foreground: 240 5.9% 10%;
- 
-    --secondary: 190 100% 13%;
-    --secondary-foreground: 0 0% 98%;
- 
-    --muted: 195 70% 10%;
+
+    --primary: 210 73% 34%;
+    --primary-foreground: 220 6% 90%;
+
+    --secondary: 220 41% 17%;
+    --secondary-foreground: 220 6% 90%;
+
+    --muted: 213, 69%, 15%;
     --muted-foreground: 240 5% 64.9%;
- 
-    --accent: 190 100% 13%;
+
+    --accent: 213, 69%, 15%;
     --accent-foreground: 0 0% 98%;
- 
+
     --destructive: 0 70.8% 60.6%;
     --destructive-foreground: 0 0% 100%;
- 
+
     --border: 201 48% 13%;
     --input: 201 48% 20%;
     --ring: 240 4.9% 83.9%;
@@ -84,10 +84,57 @@
   body {
     @apply bg-background text-foreground;
   }
-  
 }
- 
-.frost{
+
+/* styles/HalftoneEffect.module.css */
+.halftone {
+  top: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), #000000),
+    radial-gradient(circle at 4px 4px, rgb(33, 71, 147) 28%, transparent 5.6%);
+  background-position: var(--polka-bg-position, 100px 100px);
+  background-size: var(--polka-bg-size, 6px 6px);
+  mask-composite: source-out;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  &::before,
+  &::after {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    --grad: radial-gradient(
+      at 25%,
+      red,
+      #{rgba(red, 0.2)} 50%,
+      transparent 70%
+    );
+    --mask: var(--grad), var(--grad), var(--grad);
+    -webkit-mask: var(--mask);
+    -webkit-mask-composite: source-in;
+    mask: var(--mask);
+    mask-composite: intersect;
+    mix-blend-mode: color;
+    content: "";
+  }
+
+  &::before {
+    background: #000;
+    filter: url(#f);
+  }
+
+  &::after {
+    background: linear-gradient(90deg, purple, navy 20%, aqua);
+  }
+}
+
+.frost {
   animation: frostAnimation 10s infinite;
 }
 

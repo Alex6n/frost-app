@@ -1,1 +1,1 @@
-export { default as Frost } from './frost.svg';
+export { default as Frost } from "./frost.svg";

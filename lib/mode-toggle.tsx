@@ -25,9 +25,9 @@ export function ModeToggle() {
   return (
     <Button onClick={switchHandler} variant="ghost" size="icon">
       {theme === "light" ?
-        <Sun className="h-5 w-5 transition-all" />
-        :
         <Moon className="h-5 w-5 transition-all" />
+        :
+        <Sun className="h-5 w-5 transition-all" />
       }
     </Button>
   )
