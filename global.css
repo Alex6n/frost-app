@@ -16,26 +16,26 @@
 
 @layer base {
   :root {
-    --background: 195 33% 93%;
-    --foreground: 200 60% 1%;
+    --background: 218 46% 92%;
+    --foreground: 0 0% 2%;
 
     --card: 195 30% 80%;
-    --card-foreground: 200 60% 1%;
+    --card-foreground: 0 0% 2%;
 
     --popover: 195 30% 80%;
-    --popover-foreground: 200 60% 1%;
+    --popover-foreground: 0 0% 2%;
 
-    --primary: 201 38% 28%;
-    --primary-foreground: 195 33% 93%;
+    --primary: 210 73% 66%;
+    --primary-foreground: 0 0% 2%;
 
-    --secondary: 201 48% 87%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 221 40% 83%;
+    --secondary-foreground: 0 0% 2%;
 
-    --muted: 195 30% 80%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 213 69% 85%;
+    --muted-foreground: 0 0% 2%;
 
-    --accent: 201 48% 87%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 213 69% 85%;
+    --accent-foreground: 0 0% 2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -86,8 +86,55 @@
   }
 }
 
-/* styles/HalftoneEffect.module.css */
 .halftone {
+  top: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), #ffffff5e),
+    radial-gradient(circle at 4px 4px, rgb(33, 71, 147) 28%, transparent 5.6%);
+  background-position: var(--polka-bg-position, 100px 100px);
+  background-size: var(--polka-bg-size, 6px 6px);
+  mask-composite: source-out;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  &::before,
+  &::after {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    --grad: radial-gradient(
+      at 25%,
+      red,
+      #{rgba(red, 0.2)} 50%,
+      transparent 70%
+    );
+    --mask: var(--grad), var(--grad), var(--grad);
+    -webkit-mask: var(--mask);
+    -webkit-mask-composite: source-in;
+    mask: var(--mask);
+    mask-composite: intersect;
+    mix-blend-mode: color;
+    content: "";
+  }
+
+  &::before {
+    background: #ffffff;
+    filter: url(#f);
+  }
+
+  &::after {
+    background: linear-gradient(90deg, #ff80ff, #8080ff 20%, #00ffff);
+  }
+}
+
+/* styles/HalftoneEffect.module.css */
+.halftone-dark {
   top: 30px;
   position: absolute;
   width: 100%;

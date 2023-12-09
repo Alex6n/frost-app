@@ -65,7 +65,7 @@ export function Navbar() {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    "text-amber-400 hover:text-amber-200 hover:bg-amber-950/20"
+                    "dark:text-amber-400 dark:hover:text-amber-200 dark:hover:bg-amber-950/20 text-amber-600 hover:text-amber-900 hover:bg-orange-300/20"
                   )}
                 >
                   <Sparkles className="w-4 mr-1" />
