@@ -1,10 +1,11 @@
-import { HeroSection } from "@/components/hero-section";
+import Features from "@/components/Features";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <div>
-      <HeroSection />
-      <div className="h-[5000px]"></div>
+      <Hero />
+      <Features />
     </div>
   );
 }

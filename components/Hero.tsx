@@ -1,12 +1,12 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "./Icons";
-import { Button } from "./ui/button";
+import { Icons } from "@/components/Icons";
+import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
-export function HeroSection() {
+const Hero = () => {
   const { theme } = useTheme();
+
   return (
     <div className="hero-section flex h-[72vh] items-center justify-center lg:h-[85vh]">
       <div className="mx-auto mt-[400px] z-30 tracking-tight">
@@ -29,4 +29,6 @@ export function HeroSection() {
       />
     </div>
   );
-}
+};
+
+export default Hero;

@@ -6,31 +6,34 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Dot, Sparkles } from "lucide-react";
 import { ModeToggle } from "@/lib/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
+const statusIndicator = {
+  online: "text-green-400",
+  partial: "text-orange-400",
+  offline: "text-rose-600",
+};
+
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
+  const status = "offline";
 
   const controlNavbar = React.useCallback(() => {
     if (typeof window !== "undefined") {
       if (window.scrollY > lastScrollY) {
-        // if scroll down hide the navbar
         setIsOpen(false);
-        console.log(lastScrollY);
       } else {
         setIsOpen(true);
       }
-      // remember current page location to use in the next move
+
       setLastScrollY(window.scrollY);
     }
   }, [lastScrollY]);
@@ -39,7 +42,6 @@ export function Navbar() {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
 
-      // cleanup function
       return () => {
         window.removeEventListener("scroll", controlNavbar);
       };
@@ -89,8 +91,12 @@ export function Navbar() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/status" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Dot className="text-green-400" />
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), "w-20 pr-6")}
+                >
+                  <Dot
+                    className={`${statusIndicator[status]} w-8 h-8 min-w-max`}
+                  />
                   Status
                 </NavigationMenuLink>
               </Link>
