@@ -13,7 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Dot } from "lucide-react";
+import { Dot, Sparkles } from "lucide-react";
 import { ModeToggle } from "@/lib/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
@@ -61,29 +61,36 @@ export function Navbar() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
+              <Link href="/elite" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-amber-400 hover:text-amber-200 hover:bg-amber-950/20"
+                  )}
+                >
+                  <Sparkles className="w-4 mr-1" />
+                  Elite Access
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Documentation
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Contact Us</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-col]">
-                  <ListItem href="/docs" title="Online Chat">
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                  </ListItem>
-                  <ListItem href="/docs/installation" title="Discord">
-                    How to install dependencies and structure your app.
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
+            <NavigationMenuItem className="flex flex-1">
+              <Link href="/discord" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Discord
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/status" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Dot className="overflow-clip text-green-500" />
+                  <Dot className="text-green-400" />
                   Status
                 </NavigationMenuLink>
               </Link>
