@@ -50,17 +50,17 @@ export function Navbar() {
 
   return (
     <div
-      className={`z-50 bg-gradient-to-b from-primary/[8%] fixed w-full transition-transform ease-in-out duration-300 transform ${
+      className={`z-50 bg-gradient-to-b from-secondary/[50%] to-background/[50%] fixed w-full transition-transform ease-in-out duration-300 transform ${
         isOpen ? "-translate-y-0" : "-translate-y-28"
       } flex flex-col items-center p-4`}
     >
       <div className="flex flex-rows-3 gap-72">
         <img
-          className=" svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
+          className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
           alt="Frost"
           src="/logo.svg"
         />
-        <NavigationMenu>
+        <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
             <NavigationMenuItem>
               <Link href="/elite" legacyBehavior passHref>
