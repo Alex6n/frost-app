@@ -12,7 +12,7 @@ const preks = [
     name: "Tailored For You",
     Icon: CheckSquare,
     description:
-      "This bot includes all essential Discord features, along with new features crafted just for you.",
+      "This bot includes all essential features, along with new features crafted just for you.",
   },
   {
     name: "Open Source",
