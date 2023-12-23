@@ -3,9 +3,12 @@ import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <Features />
-    </div>
+      <section className="flex flex-cols-2">
+        <div></div>
+      </section>
+    </main>
   );
 }

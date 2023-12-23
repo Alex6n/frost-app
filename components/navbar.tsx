@@ -24,7 +24,7 @@ const statusIndicator = {
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
-  const status = "offline";
+  const status = "online";
 
   const controlNavbar = React.useCallback(() => {
     if (typeof window !== "undefined") {
@@ -55,50 +55,46 @@ export function Navbar() {
       } flex flex-col items-center p-4`}
     >
       <div className="flex flex-rows-3 gap-72">
-        <img
-          className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
-          alt="Frost"
-          src="/logo.svg"
-        />
+        <Link href="/">
+          <img
+            className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
+            alt="Frost"
+            src="/logo.svg"
+          />
+        </Link>
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/elite" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "dark:text-amber-400 dark:hover:text-amber-200 dark:hover:bg-amber-950/20 text-amber-600 hover:text-amber-900 hover:bg-orange-300/20"
-                  )}
-                >
-                  <Sparkles className="w-4 mr-1" />
-                  Elite Access
-                </NavigationMenuLink>
+              <Link
+                href="/elite"
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "dark:text-amber-400 dark:hover:text-amber-200 dark:hover:bg-amber-950/20 text-amber-600 hover:text-amber-900 hover:bg-orange-300/20"
+                )}
+              >
+                <Sparkles className="w-4 mr-1" />
+                Elite Access
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="flex flex-1">
-              <Link href="/discord" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Discord
-                </NavigationMenuLink>
+              <Link href="/docs" className={navigationMenuTriggerStyle()}>
+                Documentation
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/status" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle(), "w-20 pr-6")}
-                >
-                  <Dot
-                    className={`${statusIndicator[status]} w-8 h-8 min-w-max`}
-                  />
-                  Status
-                </NavigationMenuLink>
+              <Link href="/discord" className={navigationMenuTriggerStyle()}>
+                Discord
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link
+                href="/status"
+                className={cn(navigationMenuTriggerStyle(), "w-20 pr-6")}
+              >
+                <Dot
+                  className={`${statusIndicator[status]} w-8 h-8 min-w-max`}
+                />
+                Status
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
