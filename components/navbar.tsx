@@ -54,7 +54,7 @@ export function Navbar() {
         isOpen ? "-translate-y-0" : "-translate-y-28"
       } flex flex-col items-center p-4`}
     >
-      <div className="flex flex-rows-3 gap-72">
+      <div className="flex justify-between w-full xl:px-44 lg:px-28 sm:px-6 px-2">
         <Link href="/">
           <img
             className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
@@ -96,9 +96,6 @@ export function Navbar() {
                 />
                 Status
               </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <ModeToggle />
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

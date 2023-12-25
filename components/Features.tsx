@@ -25,9 +25,9 @@ const preks = [
 const Features = () => {
   return (
     <section>
-      <Separator className="bg-foreground/10 dark:bg-foreground" />
+      <Separator className="bg-foreground/10 dark:bg-foreground hidden lg:block" />
 
-      <div className="bg-secondary/40 p-16 mx-28 my-40 rounded-xl">
+      <div className="bg-secondary/40 p-16 md:mx-28 my-40 rounded-xl">
         <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
           {preks.map((perk) => (
             <div
