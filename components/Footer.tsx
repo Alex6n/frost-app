@@ -58,10 +58,12 @@ const Footer = ({ usefullLinks, appData }: FooterProps) => {
         <div className="hidden lg:flex flex-cols-3 w-[500px] space-between space-x-20 my-auto mx-10">
           {usefullLinks.map(({ label, links }) => (
             <div key={label}>
-              <h3 className="text-center mb-3">{label}</h3>
+              <h3 className="mb-5 tracking-wider text-md font-medium">
+                {label}
+              </h3>
               {links.map(({ href, title }) => (
-                <ul key={href} className="text-zinc-400 mb-1">
-                  <Link className="text-start" href={href}>
+                <ul key={title} className="text-zinc-400 mb-3 text-sm">
+                  <Link className="hover:underline tracking-wide" href={href}>
                     {title}
                   </Link>
                 </ul>

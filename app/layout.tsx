@@ -25,62 +25,41 @@ const usefullLinks = [
     label: "Website Map",
     links: [
       {
-        title: "link",
-        href: "/link",
+        title: "Membership",
+        href: "/membership",
       },
       {
-        title: "link",
-        href: "/link",
+        title: "Dashboard",
+        href: "/dashboard",
       },
       {
-        title: "link",
-        href: "/link",
+        title: "Documentation",
+        href: "/docs",
       },
       {
-        title: "link",
-        href: "/link",
-      },
-    ],
-  },
-  {
-    label: "Example Title",
-    links: [
-      {
-        title: "link",
-        href: "/link",
+        title: "Elite",
+        href: "/elite",
       },
       {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
+        title: "Commands",
+        href: "/commands",
       },
     ],
   },
   {
-    label: "Socials",
+    label: "Policy",
     links: [
       {
-        title: "link",
-        href: "/link",
+        title: "Terms Of Use",
+        href: "/terms-of-use",
       },
       {
-        title: "link",
-        href: "/link",
+        title: "Privacy Policy",
+        href: "/privacy-policy",
       },
       {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
+        title: "Refund Policy",
+        href: "/refund-policy",
       },
     ],
   },
