@@ -36,7 +36,7 @@ const Statistics = ({ appData, footerRef }: StatisticsProps) => {
   }, [footerRef]);
 
   return (
-    <div className="bg-white/10 p-10 rounded-lg border-white/70 border max-w-[500px] hidden xl:flex flex-wrap flex-rows-5 justify-center items-center space-between gap-10 my-auto mx-10">
+    <div className="bg-muted-foreground/5 p-10 rounded-lg border-zinc-400/20 border max-w-[500px] hidden xl:flex flex-wrap flex-rows-5 justify-center items-center space-between gap-10 my-auto mx-10">
       {Object.keys(appData).map((key, index) => {
         const value = appData[key as keyof typeof appData];
 
