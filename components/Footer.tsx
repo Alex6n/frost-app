@@ -6,81 +6,24 @@ import Link from "next/link";
 import { useRef } from "react";
 import Statistics from "./Statistics";
 
-const usefullLinks = [
-  {
-    label: "Website Map",
-    links: [
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-    ],
-  },
-  {
-    label: "Example Title",
-    links: [
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-    ],
-  },
-  {
-    label: "Socials",
-    links: [
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-      {
-        title: "link",
-        href: "/link",
-      },
-    ],
-  },
-];
+interface FooterProps {
+  usefullLinks: {
+    label: string;
+    links: {
+      title: string;
+      href: string;
+    }[];
+  }[];
+  appData: {
+    serversJoined: number;
+    botUsers: number;
+    eliteUsers: number;
+    websiteVisits: number;
+    appCommands: number;
+  };
+}
 
-const appData = {
-  serversJoined: 100,
-  botUsers: 5000,
-  eliteUsers: 100,
-  websiteVisits: 5000,
-  appCommands: 120,
-};
-
-const Footer = () => {
+const Footer = ({ usefullLinks, appData }: FooterProps) => {
   const footerRef = useRef(null);
 
   return (

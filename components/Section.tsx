@@ -1,19 +1,8 @@
-import { Coffee, Hop } from "lucide-react";
-import { Separator } from "./ui/separator";
-import SectionDetails from "./SectionDetails";
-
-const Section = () => {
+const Section = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="w-screen md:h-96">
-      <Separator className="bg-foreground/10" />
-
-      <div className="flex flex-cols-2 justify-center h-full">
-        <SectionDetails
-          label="Frost Feature"
-          description="The File Manager UI consists of a toolbar, navigation pane."
-        >
-          <Hop className="h-7 w-7 text-muted-foreground" />
-        </SectionDetails>
+    <section className="w-screen md:h-96 my-36">
+      <div className="flex flex-cols-2 justify-center gap-28 h-full">
+        {children}
       </div>
     </section>
   );

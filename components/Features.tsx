@@ -1,35 +1,22 @@
-import { BookOpen, CheckSquare, Timer } from "lucide-react";
+import { BookOpen, CheckSquare, LucideIcon, Timer } from "lucide-react";
 import { Separator } from "./ui/separator";
 
-const preks = [
-  {
-    name: "Quick Setup",
-    Icon: Timer,
-    description:
-      "Finish setting up your discord server with only a few clicks!",
-  },
-  {
-    name: "Tailored For You",
-    Icon: CheckSquare,
-    description:
-      "This bot includes all essential features, along with new features crafted just for you.",
-  },
-  {
-    name: "Open Source",
-    Icon: BookOpen,
-    description:
-      "Committed to improvement, our bot is open source, inviting contributors to enrich its capabilities.",
-  },
-];
+interface FeaturesProps {
+  perks: {
+    name: string;
+    Icon: LucideIcon;
+    description: string;
+  }[];
+}
 
-const Features = () => {
+const Features = ({ perks }: FeaturesProps) => {
   return (
     <section>
       <Separator className="bg-foreground/10 dark:bg-foreground hidden lg:block" />
 
       <div className="bg-secondary/40 p-16 md:mx-28 my-40 rounded-xl">
         <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
-          {preks.map((perk) => (
+          {perks.map((perk) => (
             <div
               key={perk.name}
               className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
