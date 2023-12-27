@@ -201,3 +201,13 @@
     transform: translateY(0);
   }
 }
+
+.tag-icon {
+  background: radial-gradient(
+    64.12% 64.12% at 50% 50%,
+    rgba(5, 33, 65, 0.45) 0,
+    rgba(40, 157, 207, 0) 100%
+  );
+  border: 1.5px dashed rgba(154, 158, 178, 0.2);
+  border-radius: 10px;
+}

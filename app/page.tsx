@@ -1,14 +1,13 @@
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import Section from "@/components/Section";
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <Features />
-      <section className="flex flex-cols-2">
-        <div></div>
-      </section>
+      <Section />
     </main>
   );
 }
