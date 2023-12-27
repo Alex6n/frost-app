@@ -12,7 +12,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Dot, Sparkles } from "lucide-react";
-import { ModeToggle } from "@/lib/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const statusIndicator = {
@@ -89,7 +88,7 @@ export function Navbar() {
             <NavigationMenuItem>
               <Link
                 href="/status"
-                className={cn(navigationMenuTriggerStyle(), "w-20 pr-6")}
+                className={cn(navigationMenuTriggerStyle(), "w-24 pr-8")}
               >
                 <Dot
                   className={`${statusIndicator[status]} w-8 h-8 min-w-max`}

@@ -6,9 +6,7 @@ import { useEffect } from "react";
 
 const Section = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
-    AOS.init({
-      once: true,
-    });
+    AOS.init({});
   }, []);
   return (
     <section
