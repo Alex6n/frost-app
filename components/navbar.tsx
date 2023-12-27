@@ -97,8 +97,11 @@ export function Navbar() {
                 Status
               </Link>
             </NavigationMenuItem>
+            {/* TODO: Switch Language Menu NavItem */}
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* TODO: Profile Menu or same image but with add to discord func */}
         <Avatar className="mt-3">
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
