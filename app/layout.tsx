@@ -17,7 +17,7 @@ const appData = {
   botUsers: 5000,
   eliteUsers: 100,
   websiteVisits: 5000,
-  appCommands: 120,
+  appCommands: 123,
 };
 
 const usefullLinks = [

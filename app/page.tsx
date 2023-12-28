@@ -1,7 +1,14 @@
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
-import { BookOpen, CheckSquare, Coffee, Hop, Timer } from "lucide-react";
+import {
+  BookOpen,
+  CheckSquare,
+  Cigarette,
+  Coffee,
+  Hop,
+  Timer,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionDetails from "@/components/SectionDetails";
 
@@ -47,7 +54,11 @@ export default function Home() {
       <Features perks={perks} />
 
       <section>
-        <Section>
+        <Section
+          imageFirst={false}
+          imageAlt="Frost First"
+          image="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/640843453613c80273894d6e_playstation_launch_blog%20header.png"
+        >
           <SectionDetails
             label="Frost First"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -56,27 +67,13 @@ export default function Home() {
           >
             <Hop className="h-7 w-7 text-muted-foreground" />
           </SectionDetails>
-
-          <div className="flex flex-col justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://assets.materialup.com/uploads/320be02a-aa8f-4376-8a35-5457274fb45b/attachment.png"
-              alt="Frost First"
-              className="aspect-video object-cover max-w-xl lg:max-w-sm xl:max-w-xl m-14 rounded-3xl shadow-lg shadow-black/60 border-zinc-100/20 border-2"
-            />
-          </div>
         </Section>
 
-        <Section>
-          <div className="flex flex-col justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://assets.materialup.com/uploads/320be02a-aa8f-4376-8a35-5457274fb45b/attachment.png"
-              alt="Frost Second"
-              className="aspect-video object-cover max-w-xl lg:max-w-sm xl:max-w-xl m-14 rounded-3xl shadow-lg shadow-black/60 border-zinc-100/20 border-2"
-            />
-          </div>
-
+        <Section
+          imageFirst={true}
+          imageAlt="Frost Second"
+          image="https://assets.materialup.com/uploads/320be02a-aa8f-4376-8a35-5457274fb45b/attachment.png"
+        >
           <SectionDetails
             label="Frost Second"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -84,6 +81,21 @@ export default function Home() {
           numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga"
           >
             <Coffee className="h-7 w-7 text-muted-foreground" />
+          </SectionDetails>
+        </Section>
+
+        <Section
+          imageFirst={false}
+          imageAlt="Frost Third"
+          image="https://techcrunch.com/wp-content/uploads/2023/03/Clyde-In-Product-Screenshot.png"
+        >
+          <SectionDetails
+            label="Frost Third"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+          molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+          numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga"
+          >
+            <Cigarette className="h-7 w-7 text-muted-foreground" />
           </SectionDetails>
         </Section>
       </section>
