@@ -1,9 +1,9 @@
 "use client";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Section = ({
   children,
@@ -29,7 +29,6 @@ const Section = ({
       data-aos-duration="600"
     >
       <div className="block lg:flex flex-cols-2 sm:mx-[15%] justify-center h-full ">
-        {/* TODO: fix mobile view */}
         {(matches || imageFirst) && (
           <div className="flex flex-col justify-center">
             {/*  eslint-disable-next-line @next/next/no-img-element */}
