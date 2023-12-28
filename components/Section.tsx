@@ -1,9 +1,9 @@
 "use client";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Section = ({
   children,
