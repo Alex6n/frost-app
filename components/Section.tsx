@@ -14,10 +14,8 @@ const Section = ({
   children: React.ReactNode;
   image: string;
   imageAlt: string;
-  imageFirst?: boolean;
+  imageFirst: boolean;
 }) => {
-  const matches = useMediaQuery("(max-width:1020px)"); // md breakpoint in Material-UI is 960px
-
   useEffect(() => {
     AOS.init({});
   }, []);
@@ -31,21 +29,21 @@ const Section = ({
       <div className="block lg:flex flex-cols-2 sm:mx-[15%] justify-center h-full ">
         {(matches || imageFirst) && (
           <div className="flex flex-col justify-center">
-            {/*  eslint-disable-next-line @next/next/no-img-element */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={image}
-              alt={imageAlt}
+              alt="Frost First"
               className="aspect-video object-cover max-w-xl lg:max-w-sm xl:max-w-xl m-14 rounded-3xl shadow-lg shadow-black/60 border-zinc-100/20 border-2"
             />
           </div>
         )}
         {children}
-        {!matches && !imageFirst && (
+        {imageFirst || (
           <div className="flex flex-col justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={image}
-              alt={imageAlt}
+              alt="Frost First"
               className="aspect-video object-cover max-w-xl lg:max-w-sm xl:max-w-xl m-14 rounded-3xl shadow-lg shadow-black/60 border-zinc-100/20 border-2"
             />
           </div>
