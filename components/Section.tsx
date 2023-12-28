@@ -16,6 +16,8 @@ const Section = ({
   imageAlt: string;
   imageFirst: boolean;
 }) => {
+  const matches = useMediaQuery("(max-width:1020px)"); // md breakpoint in Material-UI is 960px
+
   useEffect(() => {
     AOS.init({});
   }, []);
