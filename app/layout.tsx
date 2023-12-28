@@ -73,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" forcedTheme="dark">
           <Navbar />
           {children}
           <Footer appData={appData} usefullLinks={usefullLinks} />

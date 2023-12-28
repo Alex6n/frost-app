@@ -55,7 +55,7 @@ export default function Home() {
 
       <section>
         <Section
-          imageFirst={false}
+          imageFirst
           imageAlt="Frost First"
           image="https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/640843453613c80273894d6e_playstation_launch_blog%20header.png"
         >
@@ -70,7 +70,6 @@ export default function Home() {
         </Section>
 
         <Section
-          imageFirst={true}
           imageAlt="Frost Second"
           image="https://assets.materialup.com/uploads/320be02a-aa8f-4376-8a35-5457274fb45b/attachment.png"
         >
@@ -85,7 +84,7 @@ export default function Home() {
         </Section>
 
         <Section
-          imageFirst={false}
+          imageFirst
           imageAlt="Frost Third"
           image="https://techcrunch.com/wp-content/uploads/2023/03/Clyde-In-Product-Screenshot.png"
         >
