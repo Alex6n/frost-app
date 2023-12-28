@@ -35,6 +35,9 @@
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   },
+  "resolutions": {
+    "**/@material-ui/core": "--legacy-peer-deps"
+  },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@types/aos": "^3.0.7",
