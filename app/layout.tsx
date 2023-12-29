@@ -27,10 +27,6 @@ const usefullLinks = [
       {
         title: "Membership",
         href: "/membership",
-        badge: {
-          title: "zio",
-          color: "green",
-        },
       },
       {
         title: "Dashboard",
@@ -41,8 +37,12 @@ const usefullLinks = [
         href: "/docs",
       },
       {
-        title: "Elite",
+        title: "Join The Elite",
         href: "/elite",
+        badge: {
+          label: "VIP",
+          color: "bg-amber-600/10 text-amber-400",
+        },
       },
       {
         title: "Commands",

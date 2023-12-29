@@ -16,7 +16,7 @@ interface FooterProps {
       title: string;
       href: string;
       badge?: {
-        title: string;
+        label: string;
         color: string;
       };
     }[];
@@ -73,12 +73,9 @@ const Footer = ({ usefullLinks, appData }: FooterProps) => {
                   </Link>
                   {badge && (
                     <span
-                      className={cn(
-                        "m-1 rounded px-2 py-[2px] text-[12px] font-extrabold uppercase w-fit",
-                        `bg-[${badge.color}]/10 text-[${badge.color}]`
-                      )}
+                      className={`m-1 rounded px-2 py-[2px] text-[12px] font-extrabold uppercase w-fit ${badge.color}`}
                     >
-                      {badge.title}
+                      {badge.label}
                     </span>
                   )}
                 </ul>
