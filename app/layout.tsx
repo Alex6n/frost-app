@@ -27,6 +27,10 @@ const usefullLinks = [
       {
         title: "Membership",
         href: "/membership",
+        badge: {
+          title: "zio",
+          color: "green",
+        },
       },
       {
         title: "Dashboard",

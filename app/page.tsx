@@ -98,7 +98,6 @@ export default function Home() {
           </SectionDetails>
         </Section>
       </section>
-
       {/* TODO: add top partners here */}
     </main>
   );

@@ -8,12 +8,17 @@ import Statistics from "./Statistics";
 import { Github, Twitter } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { cn } from "@/lib/utils";
 interface FooterProps {
   usefullLinks: {
     label: string;
     links: {
       title: string;
       href: string;
+      badge?: {
+        title: string;
+        color: string;
+      };
     }[];
   }[];
   appData: {
@@ -61,11 +66,21 @@ const Footer = ({ usefullLinks, appData }: FooterProps) => {
               <h3 className="mb-5 tracking-wider text-md font-medium">
                 {label}
               </h3>
-              {links.map(({ href, title }) => (
+              {links.map(({ href, title, badge }) => (
                 <ul key={title} className="text-zinc-400 mb-3 text-sm">
                   <Link className="hover:underline tracking-wide" href={href}>
                     {title}
                   </Link>
+                  {badge && (
+                    <span
+                      className={cn(
+                        "m-1 rounded px-2 py-[2px] text-[12px] font-extrabold uppercase w-fit",
+                        `bg-[${badge.color}]/10 text-[${badge.color}]`
+                      )}
+                    >
+                      {badge.title}
+                    </span>
+                  )}
                 </ul>
               ))}
             </div>
