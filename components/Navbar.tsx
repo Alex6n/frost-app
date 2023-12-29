@@ -11,7 +11,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Dot, Sparkles } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import ProfileMenu from "./ProfileMenu";
 
 const statusIndicator = {
   online: "text-green-400",
@@ -100,11 +100,7 @@ export function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* TODO: Profile Menu or same image but with add to discord func */}
-        <Avatar className="mt-3">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <ProfileMenu />
       </div>
     </div>
   );
