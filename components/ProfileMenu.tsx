@@ -33,7 +33,7 @@ const ProfileMenu = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Loader2 className="text-zinc-500 animate-spin mt-3 mr-1" />
+        <Loader2 className="text-zinc-500 animate-spin mt-3 mr-1 object-cover" />
       )}
     </div>
   );

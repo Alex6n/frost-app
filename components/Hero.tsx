@@ -10,10 +10,10 @@ const Hero = ({ title, description, children }: HeroProps) => {
   return (
     <div className="hero-section flex h-[72vh] items-center justify-center lg:h-[85vh] relative">
       <div className="mx-auto mt-[400px] z-30 tracking-tight absolute">
-        <h1 className="text-[50px] md:text-[80px] font-bold text-center text-transparent bg-clip-text bg-gradient-to-b dark:from-[#f5faff] dark:to-[#d6f3ff] from-[#00050a] to-[#002b3d]">
+        <h1 className="text-[50px] md:text-[80px] font-bold text-center text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#bfc4f3]">
           {title}
         </h1>
-        <p className="text-[25px] md:text-[30px] text-center font-bold text-transparent bg-clip-text bg-gradient-to-b dark:from-[#f5faff] dark:to-[#d6f3ff] from-[#00050a] to-[#002b3d]">
+        <p className="text-[25px] md:text-[30px] text-center font-bold text-transparent bg-clip-text bg-gradient-to-b  from-[#ffffff] to-[#c6cbfd]">
           {description}
         </p>
         <div className="flex flex-row justify-center gap-3 mt-5">
