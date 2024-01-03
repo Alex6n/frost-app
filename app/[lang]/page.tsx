@@ -1,3 +1,6 @@
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
+
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
@@ -115,11 +118,17 @@ const topServers = [
   },
 ];
 
-export default function Home() {
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  const { hero } = await getDictionary(lang);
+
   return (
     <main>
       <Hero
-        title="Super Easy Way"
+        title={hero.title}
         description="Create and Manage your Discord Community!"
       >
         <Button className="text-base md:text-lg font-semibold p-6 md:p-7">

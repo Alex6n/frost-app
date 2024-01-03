@@ -10,8 +10,19 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import { Dot, Sparkles } from "lucide-react";
 import ProfileMenu from "./ProfileMenu";
+import Image from "next/image";
 
 const statusIndicator = {
   online: "text-green-400",
@@ -52,14 +63,10 @@ export function Navbar() {
         isOpen ? "-translate-y-0" : "-translate-y-28"
       } flex flex-col items-center p-4`}
     >
+      {/* TODO : add bottom border when scrolling down only */}
       <div className="flex justify-between w-full xl:px-44 lg:px-28 sm:px-6 px-2">
         <Link href="/">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
-            alt="Frost"
-            src="/logo.svg"
-          />
+          <Image width="64" height="64" alt="Frost" src="/logo.svg" />
         </Link>
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
@@ -81,11 +88,6 @@ export function Navbar() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/discord" className={navigationMenuTriggerStyle()}>
-                Discord
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
               <Link
                 href="/status"
                 className={cn(navigationMenuTriggerStyle(), "w-24 pr-8")}
@@ -96,7 +98,18 @@ export function Navbar() {
                 Status
               </Link>
             </NavigationMenuItem>
-            {/* TODO: Switch Language Menu NavItem */}
+
+            {/* TODO : make this functional and styled */}
+            <NavigationMenuItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <div className={navigationMenuTriggerStyle()}>English</div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>Arabic</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
