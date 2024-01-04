@@ -10,17 +10,8 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import { Dot, Sparkles } from "lucide-react";
 import ProfileMenu from "./ProfileMenu";
-import Image from "next/image";
 
 const statusIndicator = {
   online: "text-green-400",
@@ -28,13 +19,7 @@ const statusIndicator = {
   offline: "text-rose-600",
 };
 
-export function Navbar({
-  navbar,
-  userMenu,
-}: {
-  navbar: string[];
-  userMenu: string[];
-}) {
+export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
   const status = "online";
@@ -67,10 +52,14 @@ export function Navbar({
         isOpen ? "-translate-y-0" : "-translate-y-28"
       } flex flex-col items-center p-4`}
     >
-      {/* TODO : add bottom border when scrolling down only */}
       <div className="flex justify-between w-full xl:px-44 lg:px-28 sm:px-6 px-2">
         <Link href="/">
-          <Image width="64" height="64" alt="Frost" src="/logo.svg" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="svg-shadow drop-shadow shadow-cyan-500/50 aspect-square h-16"
+            alt="Frost"
+            src="/logo.svg"
+          />
         </Link>
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
@@ -83,12 +72,17 @@ export function Navbar({
                 )}
               >
                 <Sparkles className="w-4 mr-1" />
-                {navbar[0]}
+                Elite Access
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/docs" className={navigationMenuTriggerStyle()}>
-                {navbar[1]}
+                Documentation
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/discord" className={navigationMenuTriggerStyle()}>
+                Discord
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -99,32 +93,14 @@ export function Navbar({
                 <Dot
                   className={`${statusIndicator[status]} w-8 h-8 min-w-max`}
                 />
-                {navbar[2]}
+                Status
               </Link>
             </NavigationMenuItem>
-
-            {/* TODO : make this functional and styled */}
-            {/* TODO : find a way to internationalize this component */}
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <NavigationMenuItem>
-                  <div
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "focus:outline-none"
-                    )}
-                  >
-                    English
-                  </div>
-                </NavigationMenuItem>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Arabic</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* TODO: Switch Language Menu NavItem */}
           </NavigationMenuList>
         </NavigationMenu>
-        <ProfileMenu userMenu={userMenu} />
+
+        <ProfileMenu />
       </div>
     </div>
   );
