@@ -105,19 +105,25 @@ export function Navbar({
 
             {/* TODO : make this functional and styled */}
             {/* TODO : find a way to internationalize this component */}
-            <NavigationMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <div className={navigationMenuTriggerStyle()}>English</div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Arabic</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </NavigationMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <NavigationMenuItem>
+                  <div
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "focus:outline-none"
+                    )}
+                  >
+                    English
+                  </div>
+                </NavigationMenuItem>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Arabic</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </NavigationMenuList>
         </NavigationMenu>
-
         <ProfileMenu userMenu={userMenu} />
       </div>
     </div>
