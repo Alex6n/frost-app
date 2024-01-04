@@ -2,15 +2,10 @@
 
 import * as React from "react";
 import useEmblaCarousel, {
-  type UseEmblaCarouselType as CarouselApi,
+  type EmblaCarouselType as CarouselApi,
+  type EmblaOptionsType as CarouselOptions,
+  type EmblaPluginType as CarouselPlugin,
 } from "embla-carousel-react";
-import type EmblaOptionsType from "embla-carousel-react";
-import type EmblaPluginType from "embla-carousel-react";
-// If you want to alias:
-// import type EmblaOptionsType from "embla-carousel-react";
-// type CarouselOptions = EmblaOptionsType;
-// import type EmblaPluginType from "embla-carousel-react";
-// type CarouselPlugin = EmblaPluginType;
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
