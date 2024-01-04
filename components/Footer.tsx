@@ -44,7 +44,7 @@ const Footer = ({ usefullLinks, appData, rights }: FooterProps) => {
         <Statistics appData={appData} footerRef={footerRef} />
 
         <div className="col-span-1 -translate-y-24 mx-10">
-          <Image src="/logo.png" height="370" width="370" alt="Frost logo" />
+          <Image src="/logo.svg" height="370" width="370" alt="Frost logo" />
           <p className="text-center font-semibold mt-10">{rights}</p>
           <div className="flex flex-row justify-center gap-4 my-3">
             <a href="#">
