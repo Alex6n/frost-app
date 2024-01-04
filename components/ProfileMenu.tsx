@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ userMenu }: { userMenu: string[] }) => {
   const profile = true;
   return (
     <div className="mt-3">
@@ -21,13 +21,13 @@ const ProfileMenu = () => {
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="mt-2 font-semibold">
-            <DropdownMenuItem>Daily Reward</DropdownMenuItem>
+            <DropdownMenuItem>{userMenu[0]}</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Dashboard</DropdownMenuItem>
-            <DropdownMenuItem>Commands</DropdownMenuItem>
+            <DropdownMenuItem>{userMenu[1]}</DropdownMenuItem>
+            <DropdownMenuItem>{userMenu[2]}</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-rose-600">
-              Logout
+              {userMenu[3]}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

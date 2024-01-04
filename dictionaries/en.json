@@ -6,7 +6,6 @@
     "navbar": [
         "Elite Access",
         "Documentation",
-        "Discord",
         "Status"
     ],
     "userMenu": [
@@ -60,20 +59,24 @@
             "label": "Website Map",
             "links": [
                 {
-                    "title": "Membership"
+                    "title": "Membership",
+                    "href": "/membership"
                 },
                 {
-                    "title": "Dashboard"
+                    "title": "Dashboard",
+                    "href": "/membership"
                 },
                 {
-                    "title": "Documentation"
+                    "title": "Documentation",
+                    "href": "/docs"
                 },
                 {
                     "title": "Join The Elite",
-                    "badge": "VIP"
-                },
-                {
-                    "title": "Documentation"
+                    "href": "/elite",
+                    "badge": {
+                        "label": "VIP",
+                        "color": "bg-amber-600/10 text-amber-400"
+                    }
                 }
             ]
         },
@@ -81,13 +84,16 @@
             "label": "Policy",
             "links": [
                 {
-                    "title": "Terms Of Use"
+                    "title": "Terms Of Use",
+                    "href": "/terms-of-use"
                 },
                 {
-                    "title": "Privacy Policy"
+                    "title": "Privacy Policy",
+                    "href": "/privacy-policy"
                 },
                 {
-                    "title": "Refund Policy"
+                    "title": "Refund Policy",
+                    "href": "/refund-policy"
                 }
             ]
         }

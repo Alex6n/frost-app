@@ -15,8 +15,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -30,7 +28,13 @@ const statusIndicator = {
   offline: "text-rose-600",
 };
 
-export function Navbar() {
+export function Navbar({
+  navbar,
+  userMenu,
+}: {
+  navbar: string[];
+  userMenu: string[];
+}) {
   const [isOpen, setIsOpen] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
   const status = "online";
@@ -79,12 +83,12 @@ export function Navbar() {
                 )}
               >
                 <Sparkles className="w-4 mr-1" />
-                Elite Access
+                {navbar[0]}
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/docs" className={navigationMenuTriggerStyle()}>
-                Documentation
+                {navbar[1]}
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -95,11 +99,12 @@ export function Navbar() {
                 <Dot
                   className={`${statusIndicator[status]} w-8 h-8 min-w-max`}
                 />
-                Status
+                {navbar[2]}
               </Link>
             </NavigationMenuItem>
 
             {/* TODO : make this functional and styled */}
+            {/* TODO : find a way to internationalize this component */}
             <NavigationMenuItem>
               <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -113,7 +118,7 @@ export function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <ProfileMenu />
+        <ProfileMenu userMenu={userMenu} />
       </div>
     </div>
   );

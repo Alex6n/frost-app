@@ -1,3 +1,4 @@
+// TODO: find a way to internationlaize this component
 "use client";
 
 import { MutableRefObject, useEffect, useState } from "react";

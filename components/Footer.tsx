@@ -8,7 +8,7 @@ import Statistics from "./Statistics";
 import { Github, Twitter } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { cn } from "@/lib/utils";
+import { Locale } from "@/i18n.config";
 interface FooterProps {
   usefullLinks: {
     label: string;
@@ -21,6 +21,7 @@ interface FooterProps {
       };
     }[];
   }[];
+
   appData: {
     serversJoined: number;
     botUsers: number;
@@ -28,9 +29,11 @@ interface FooterProps {
     websiteVisits: number;
     appCommands: number;
   };
+
+  rights: string;
 }
 
-const Footer = ({ usefullLinks, appData }: FooterProps) => {
+const Footer = ({ usefullLinks, appData, rights }: FooterProps) => {
   const footerRef = useRef(null);
 
   return (
@@ -42,9 +45,7 @@ const Footer = ({ usefullLinks, appData }: FooterProps) => {
 
         <div className="col-span-1 -translate-y-24 mx-10">
           <Image src="/logo.png" height="370" width="370" alt="Frost logo" />
-          <p className="text-center font-semibold mt-10">
-            © 2024 All rights reserved.
-          </p>
+          <p className="text-center font-semibold mt-10">{rights}</p>
           <div className="flex flex-row justify-center gap-4 my-3">
             <a href="#">
               <Github className="w-5 h-5" />

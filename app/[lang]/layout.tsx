@@ -1,3 +1,4 @@
+// TODO: Review and Refactor all app
 import "@/global.css";
 import type { Metadata } from "next";
 import { Locale, i18n } from "@/i18n.config";
@@ -6,6 +7,8 @@ import { DM_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+import { getDictionary } from "@/lib/dictionary";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -18,77 +21,36 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-const appData = {
-  serversJoined: 100,
-  botUsers: 5000,
-  eliteUsers: 100,
-  websiteVisits: 5000,
-  appCommands: 123,
-};
-
-const usefullLinks = [
-  {
-    label: "Website Map",
-    links: [
-      {
-        title: "Membership",
-        href: "/membership",
-      },
-      {
-        title: "Dashboard",
-        href: "/dashboard",
-      },
-      {
-        title: "Documentation",
-        href: "/docs",
-      },
-      {
-        title: "Join The Elite",
-        href: "/elite",
-        badge: {
-          label: "VIP",
-          color: "bg-amber-600/10 text-amber-400",
-        },
-      },
-      {
-        title: "Commands",
-        href: "/commands",
-      },
-    ],
-  },
-  {
-    label: "Policy",
-    links: [
-      {
-        title: "Terms Of Use",
-        href: "/terms-of-use",
-      },
-      {
-        title: "Privacy Policy",
-        href: "/privacy-policy",
-      },
-      {
-        title: "Refund Policy",
-        href: "/refund-policy",
-      },
-    ],
-  },
-];
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: { lang: Locale };
 }) {
+  const { usefullLinks, rights, navbar, userMenu } = await getDictionary(
+    params.lang
+  );
+
+  const appData = {
+    serversJoined: 100,
+    botUsers: 5000,
+    eliteUsers: 100,
+    websiteVisits: 5000,
+    appCommands: 123,
+  };
+
   return (
     <html lang={params.lang}>
       <body className={font.className}>
         <ThemeProvider attribute="class" forcedTheme="dark">
-          <Navbar />
+          <Navbar navbar={navbar} userMenu={userMenu} />
           {children}
-          <Footer appData={appData} usefullLinks={usefullLinks} />
+          <Footer
+            rights={rights}
+            appData={appData}
+            usefullLinks={usefullLinks}
+          />
         </ThemeProvider>
       </body>
     </html>
