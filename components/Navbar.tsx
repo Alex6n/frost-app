@@ -96,7 +96,6 @@ export function Navbar() {
                 Status
               </Link>
             </NavigationMenuItem>
-            {/* TODO: Switch Language Menu NavItem */}
           </NavigationMenuList>
         </NavigationMenu>
 
