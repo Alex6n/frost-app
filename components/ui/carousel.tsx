@@ -73,9 +73,11 @@ const Carousel = React.forwardRef<
       if (!api) {
         return;
       }
-
-      setCanScrollPrev(api.canScrollPrev());
-      setCanScrollNext(api.canScrollNext());
+      // Embla v8+ does not have canScrollPrev/canScrollNext. Use selectedSnap and scrollSnapList.
+      const selectedIndex = api.selectedScrollSnap();
+      const snapCount = api.scrollSnapList().length;
+      setCanScrollPrev(selectedIndex > 0);
+      setCanScrollNext(selectedIndex < snapCount - 1);
     }, []);
 
     const scrollPrev = React.useCallback(() => {
