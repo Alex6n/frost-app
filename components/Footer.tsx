@@ -34,7 +34,7 @@ const Footer = ({ usefullLinks, appData }: FooterProps) => {
   const footerRef = useRef(null);
 
   return (
-    <footer ref={footerRef} className="w-screen md:h-96">
+    <footer ref={footerRef} className="w-full md:h-96">
       <Separator className="bg-foreground/10" />
 
       <div className="bg-gradient-to-br from-primary/20 to-transparent h-full mx-10 md:mx-24 mt-10 rounded-t-2xl flex flex-cols-3 justify-center">

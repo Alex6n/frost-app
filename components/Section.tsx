@@ -23,7 +23,7 @@ const Section = ({
   }, []);
   return (
     <section
-      className="w-screen md:h-96 my-20 md:my-72 lg:my-36 aos-init aos-animate"
+      className="w-full md:h-96 my-20 md:my-72 lg:my-36 aos-init aos-animate"
       data-aos="fade-right"
       data-aos-offset="150"
       data-aos-duration="600"

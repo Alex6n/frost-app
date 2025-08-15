@@ -46,31 +46,28 @@ const perks = [
 const presentation = [
   {
     label: "Frost First",
-    image:
-      "https://assets-global.website-files.com/5f9072399b2640f14d6a2bf4/640843453613c80273894d6e_playstation_launch_blog%20header.png",
+    image: "/frost-first.png",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga",
     icon: Coffee,
   },
   {
     label: "Frost Second",
-    image:
-      "https://assets.materialup.com/uploads/320be02a-aa8f-4376-8a35-5457274fb45b/attachment.png",
+    image: "/frost-second.png",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga",
     icon: Hop,
   },
   {
     label: "Frost Third",
-    image:
-      "https://techcrunch.com/wp-content/uploads/2023/03/Clyde-In-Product-Screenshot.png",
+    image: "/frost-third.png",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga",
     icon: Cigarette,
   },
   {
     label: "Frost Fourth",
-    image: "https://pbs.twimg.com/media/GCSuyy_XAAArqfN?format=jpg&name=large",
+    image: "/frost-fourth.png",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga",
     icon: Key,
@@ -125,10 +122,7 @@ export default function Home() {
         <Button className="text-base md:text-lg font-semibold p-6 md:p-7">
           Add to Discord
         </Button>
-        <Button
-          className="text-base md:text-lg font-semibold p-6 md:p-7"
-          variant="secondary"
-        >
+        <Button className="text-base md:text-lg font-semibold p-6 md:p-7 bg-secondary text-secondary-foreground">
           Dashboard
         </Button>
       </Hero>
