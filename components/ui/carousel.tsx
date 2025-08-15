@@ -2,14 +2,10 @@
 
 import * as React from "react";
 import useEmblaCarousel, {
-  type UseEmblaCarouselType as CarouselApi,
+  type EmblaCarouselType as CarouselApi,
+  type EmblaOptionsType as CarouselOptions,
+  type EmblaPluginType as CarouselPlugin,
 } from "embla-carousel-react";
-
-import type {
-  EmblaOptionsType as CarouselOptions,
-  EmblaPluginType as CarouselPlugin,
-} from "embla-carousel";
-
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -73,11 +69,9 @@ const Carousel = React.forwardRef<
       if (!api) {
         return;
       }
-      // Embla v8+ does not have canScrollPrev/canScrollNext. Use selectedSnap and scrollSnapList.
-      const selectedIndex = api.selectedScrollSnap();
-      const snapCount = api.scrollSnapList().length;
-      setCanScrollPrev(selectedIndex > 0);
-      setCanScrollNext(selectedIndex < snapCount - 1);
+
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
     }, []);
 
     const scrollPrev = React.useCallback(() => {
