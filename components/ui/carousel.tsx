@@ -3,9 +3,11 @@
 import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType as CarouselApi,
-  type EmblaOptionsType as CarouselOptions,
-  type EmblaPluginType as CarouselPlugin,
 } from "embla-carousel-react";
+import EmblaOptionsType from "embla-carousel-react/components/EmblaOptionsType";
+import EmblaPluginType from "embla-carousel-react/components/EmblaPluginType";
+type CarouselOptions = EmblaOptionsType;
+type CarouselPlugin = EmblaPluginType;
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
